@@ -45,5 +45,3 @@ stopBTN.addEventListener("click", () => {
     startBTN.classList.remove("d-none");
 
 });
-
-

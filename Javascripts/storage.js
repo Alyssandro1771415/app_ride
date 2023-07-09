@@ -17,6 +17,12 @@ function getRideRecord(rideID){
 
 }
 
+function getAllRides(){
+
+    return Object.entries(localStorage);
+
+}
+
 function saveRideRecord(rideID, rideRecord){
 
     localStorage.setItem(rideID, JSON.stringify(rideRecord));
