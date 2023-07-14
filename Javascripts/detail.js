@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     deleteButton.addEventListener("click", () => {
 
         localStorage.removeItem(rideID);
-        window.location.href = "./";
+        window.location.href = "../";
 
     });
 

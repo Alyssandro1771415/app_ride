@@ -14,7 +14,7 @@ allRides.forEach(async ([id, value]) => {
 
     itemElement.addEventListener("click", () => {
 
-        window.location.href = `../screens/details.html?id=${ride.id}`;
+        window.location.href = `./screens/details.html?id=${ride.id}`;
 
     });
 
