@@ -44,4 +44,5 @@ stopBTN.addEventListener("click", () => {
     stopBTN.classList.add("d-none");
     startBTN.classList.remove("d-none");
 
+    window.location.href = "./";
 });

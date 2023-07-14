@@ -2,7 +2,7 @@ const parameters = new URLSearchParams(window.location.search);
 const rideID = parameters.get("id");
 const ride = getRideRecord(rideID);
 
-document.addEventListener("DOMContentLoaded", async() => {
+document.addEventListener("DOMContentLoaded", async () => {
 
     const firstPosition = ride.data[0];
     const firstLocationData = await getLocationData(firstPosition.latitude, firstPosition.longitude);
@@ -35,4 +35,31 @@ document.addEventListener("DOMContentLoaded", async() => {
     dataElement.appendChild(dateDiv);
 
     document.querySelector("#data").appendChild(dataElement);
+
+    const deleteButton = document.querySelector("#deleteButton");
+    deleteButton.addEventListener("click", () => {
+
+        localStorage.removeItem(rideID);
+        window.location.href = "./";
+
+    });
+
+    const map = L.map("mapDetail");
+    map.setView([firstPosition.latitude, firstPosition.longitude], 16);
+    L.tileLayer('https://tile.openstreetmap.de/{z}/{x}/{y}.png', {
+        subdomains: 'abcd',
+        minZoom: 10,
+        maxZoom: 50,
+        ext: 'png'
+    }).addTo(map);
+
+    const positionsArray = ride.data.map((position => {
+        return [position.latitude, position.longitude]
+    }))
+
+    const polyLine = L.polyline(positionsArray, {color: "#f00"});
+    polyLine.addTo(map);
+
+    map.fitBounds(polyLine.getBounds());
+
 });

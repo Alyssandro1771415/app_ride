@@ -9,7 +9,7 @@ allRides.forEach(async ([id, value]) => {
     const itemElement = document.createElement("li");
     itemElement.id = ride.id;
     itemElement.className = "d-flex p-1 align-items-center shadow-sm gap-3";
-    
+
     rideListElement.appendChild(itemElement);
 
     itemElement.addEventListener("click", () => {
@@ -21,7 +21,10 @@ allRides.forEach(async ([id, value]) => {
     const firstPosition = ride.data[0];
     const firstLocationData = await getLocationData(firstPosition.latitude, firstPosition.longitude);
 
+
+    const mapID = `map${ride.id}`;
     const mapElement = document.createElement("div");
+    mapElement.id = mapID;
     mapElement.style = "width:100px;height:100px";
     mapElement.classList.add("bg-secondary");
     mapElement.classList.add("rounded-4");
@@ -46,7 +49,7 @@ allRides.forEach(async ([id, value]) => {
     const dateDiv = document.createElement("div");
     dateDiv.innerText = getStartDate(ride);
     dateDiv.className = "text-secondary mt-2"
-    
+
     dataElement.appendChild(cityDiv);
     dataElement.appendChild(maxSpeedDiv);
     dataElement.appendChild(distanceDiv);
@@ -56,5 +59,20 @@ allRides.forEach(async ([id, value]) => {
     itemElement.appendChild(mapElement);
     itemElement.appendChild(dataElement);
 
+    const map = L.map(mapID, {
+        zoomControl: false, 
+        dragging: false, 
+        attributionControl: false,
+        scrollWheelZoom: false
+    });
+    map.setView([firstPosition.latitude, firstPosition.longitude], 15);
+    L.tileLayer('https://tile.openstreetmap.de/{z}/{x}/{y}.png', {
+        subdomains: 'abcd',
+        minZoom: 10,
+        maxZoom: 80,
+        ext: 'png'
+    }).addTo(map);
 
+    L.marker([firstPosition.latitude, firstPosition.longitude]).addTo(map);
+    
 })

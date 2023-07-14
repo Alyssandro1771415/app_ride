@@ -13,6 +13,10 @@
 
     <link rel="stylesheet" href="../style/global.css">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+
     <title>Ride</title>
 </head>
 
@@ -33,7 +37,7 @@
 
             </div>
 
-            <button class="btn btn-danger ">
+            <button id="deleteButton" class="btn btn-danger ">
                 <span class="display-4">Delete</span>
             </button>
 
@@ -41,6 +45,10 @@
 
     </div>
 
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
     <script src="../Javascripts/storage.js"></script>
     <script src="../Javascripts/dataManager.js"></script>
     <script src="../Javascripts/detail.js"></script>
