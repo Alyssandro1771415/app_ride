@@ -23,6 +23,14 @@
     --bs-btn-disabled-border-color: #0d6efd;
 }
 
+#rideList{
+
+    height: 700px;
+    border-radius: 10px;
+    overflow-y: scroll;
+
+}
+
 @keyframes slideInLeft{
 
     from{
