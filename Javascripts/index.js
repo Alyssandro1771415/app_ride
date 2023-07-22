@@ -8,7 +8,7 @@ allRides.forEach(async ([id, value]) => {
 
     const itemElement = document.createElement("li");
     itemElement.id = ride.id;
-    itemElement.className = "d-flex p-1 align-items-center shadow-sm gap-3";
+    itemElement.className = "d-flex p-1 align-items-center shadow-sm gap-3 data border border-success";
 
     rideListElement.appendChild(itemElement);
 

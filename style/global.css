@@ -23,9 +23,75 @@
     --bs-btn-disabled-border-color: #0d6efd;
 }
 
+@keyframes slideInLeft{
+
+    from{
+        transform: translateX(-300px);
+    }
+
+    to{
+        transform: translateX(0px);
+    }
+
+}
+
+@keyframes risingBTN {
+    
+    from{
+        transform: rotate3D(0, 0, 1, 0deg);
+        height: 0px;
+        width: 0px;
+    }
+    to{
+        transform: rotate3D(0, 0, 1, 360deg);
+        height: 65px;
+        width: 65px;
+    }
+}
+
+.data{
+    animation: slideInLeft 0.5s;
+}
+
+.new-data-btn{
+    animation: risingBTN 0.5s;
+}
+
 #mapDetail{
 
     height: 300px;
     background-color: #ccc;
+
+}
+
+.windows{
+
+    background: linear-gradient(rgb(0, 225, 255), rgb(0, 255, 170));
+
+}
+
+#start{
+
+    transition: transform 0.3s ease 0s, background-color 0.3s;
+
+}
+
+#start:hover{
+
+    transform:  translateY(-5px);
+    background-color: rgb(26, 167, 233);
+
+}
+
+#stop{
+
+    transition: transform 0.3s ease 0s, background-color 0.3s;
+
+}
+
+#stop:hover{
+
+    transform:  translateY(-5px);
+    background-color: rgb(228, 92, 92);
 
 }
